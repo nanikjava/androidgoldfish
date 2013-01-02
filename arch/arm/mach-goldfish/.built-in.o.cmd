@@ -1,0 +1,1 @@
+cmd_arch/arm/mach-goldfish/built-in.o :=  /media/Seagate/Data/Android/AOSP/JellyBean/android-4.1.2_r1/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-ld -EL    -r -o arch/arm/mach-goldfish/built-in.o arch/arm/mach-goldfish/pdev_bus.o arch/arm/mach-goldfish/timer.o arch/arm/mach-goldfish/switch.o arch/arm/mach-goldfish/pm.o arch/arm/mach-goldfish/board-goldfish.o 
