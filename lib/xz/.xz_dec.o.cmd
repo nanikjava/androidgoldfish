@@ -1,1 +1,0 @@
-cmd_lib/xz/xz_dec.o := /media/Seagate/Data/Android/AOSP/JellyBean/android-4.1.2_r1/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-ld -EL    -r -o lib/xz/xz_dec.o lib/xz/xz_dec_syms.o lib/xz/xz_dec_stream.o lib/xz/xz_dec_lzma2.o lib/xz/xz_dec_bcj.o 
