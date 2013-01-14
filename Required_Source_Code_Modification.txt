@@ -1,0 +1,37 @@
+Keyboard issue
+--------------
+Keyboard not working was because there was changes inside the drivers/input/evdev.c source. The following line inside 3.0.1 must be changed (the changes are shown below)
+
+- line 114 must be changed from
+
+		if (type == EV_SYN && code == SYN_REPORT)
+			wake_up_interruptible(&evdev->wait);
+  to
+		wake_up_interruptible(&evdev->wait);					
+		
+- line 394-395 must be changed from
+
+	if (client->packet_head == client->tail && evdev->exist &&
+	    (file->f_flags & O_NONBLOCK))	    
+
+  to 	    		
+
+	if (client->head == client->tail && evdev->exist &&
+	    (file->f_flags & O_NONBLOCK))
+	    
+- line 398-399 must be changed from
+
+	retval = wait_event_interruptible(evdev->wait,client->packet_head != client->tail || !evdev->exist);	    
+		
+  to
+  
+  	retval = wait_event_interruptible(evdev->wait,client->head != client->tail || !evdev->exist);
+  	
+  	
+- line 428 must be changed from 
+
+ 	if (client->packet_head != client->tail)
+	
+   to
+
+     if (client->head != client->tail)			
